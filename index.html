@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<div class="containers">
+    <div id="inputs">
+        <input id="worksDays" placeholder="Напиши броят дни" type="number">
+        <input id="numberOfquestions" placeholder="Напиши броят въпроси" type="number">
+    </div>
+    
+    <div id="disp">
+
+
+    </div>
+
+    <button id="calc" onclick="calc_res();"  >Изчисли</button>
+
+</div>
+
+<script src="js/script.js"></script>
+<script>
+     
+        function calc_res(){
+            var qstn_div = document.getElementById('questns');
+
+            console.log( qstn_div.childElementCount / 2);
+
+            var disp_it = false;
+            for (var i = 1; i <= (qstn_div.childElementCount / 2) ; i++) {
+                console.log('i:' + i);
+               if ( document.getElementById('inp_quest_from_'+i).value != '' && document.getElementById('inp_quest_to_'+i).value != '' ) {
+                  disp_it = true;
+                  
+               } else {
+                   disp_it = false;
+                   break;
+               }
+
+            }
+            if (disp_it) { 
+                console.log('DISP_IT: '+disp_it);
+                for (var i = 1; i <= (qstn_div.childElementCount / 2) ; i++) {
+                   var fr_day = document.getElementById('inp_quest_from_'+i).value;
+                   var to_day = document.getElementById('inp_quest_to_'+i).value;
+                   console.log('frd: ' + fr_day + ' tod: ' + to_day);
+                   thesum(fr_day, to_day);
+                    
+                } 
+
+            }
+
+
+        }
+
+</script>
+
+    <div id="results">
+        
+
+    </div>
+</body>
+</html>
+
+
